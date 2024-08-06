@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Study Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
             display: flex;
@@ -12,13 +13,16 @@
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
             color: #333;
+            padding: 20px;
         }
-
+    
         h1 {
             margin-bottom: 20px;
         }
-
+    
         select {
+            width: 100%;
+            max-width: 300px;
             margin-bottom: 20px;
             padding: 10px;
             font-size: 16px;
@@ -27,22 +31,25 @@
             background-color: #fff;
             color: #333;
         }
-
+    
         #sections {
             margin-top: 20px;
         }
-
+    
         h3 {
             margin-top: 20px;
             color: #007bff;
         }
-
+    
         iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
             margin-top: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
     </style>
+    
 </head>
 <body>
     <h1>Study Portal</h1>
@@ -66,12 +73,22 @@
     <div id="sections">
         <!-- Sections will be populated here based on the chapter selected -->
     </div>
-
     <script>
         const classSelect = document.getElementById('class');
         const subjectSelect = document.getElementById('subject');
         const chapterSelect = document.getElementById('chapter');
         const sectionsDiv = document.getElementById('sections');
+
+        const data = {
+            'PU I': {
+                'Physics': ['Units and Measurements', 'Motion In a Straight Line', 'Motion In a Plane'],
+                'English': ['Chapter 1', 'Chapter 2', 'Chapter 3'],
+            },
+            'PU II': {
+                'Physics': ['Chapter 1', 'Chapter 2', 'Chapter 3'],
+                'English': ['Chapter 1', 'Chapter 2', 'Chapter 3'],
+            },
+        };
 
         classSelect.addEventListener('change', (event) => {
             subjectSelect.style.display = 'block';
@@ -81,15 +98,10 @@
 
         subjectSelect.addEventListener('change', (event) => {
             const subject = event.target.value;
-
-            // Replace this with your actual data
-            const chapters = {
-                'Physics': ['Chapter 1', 'Chapter 2', 'Chapter 3'],
-                'English': ['Chapter 1', 'Chapter 2', 'Chapter 3'],
-            };
+            const classValue = classSelect.value;
 
             chapterSelect.innerHTML = '<option value="">Select Chapter</option>';
-            chapters[subject].forEach(chapter => {
+            data[classValue][subject].forEach(chapter => {
                 const option = document.createElement('option');
                 option.value = chapter;
                 option.text = chapter;
@@ -109,24 +121,25 @@
             // Replace this with your actual data
             if (classValue === 'PU I') {
                 if (subject === 'Physics') {
-                    if (chapter === 'Chapter 1') {
+                    if (chapter === 'Units and Measurements') {
                         sectionsHTML += `
                             <h3>Section 1</h3>
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/video_id_1_1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                            <h3>Kinematic Equations of Motion (Calculus Method)</h3>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/QQupgX91jTs?si=TZ-vl-mhbF7NaAex" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                             <!-- Add more sections here -->
                         `;
-                    } else if (chapter === 'Chapter 2') {
+                    } else if (chapter === 'Motion In a Straight Line') {
                         sectionsHTML += `
                             <h3>Section 1</h3>
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/video_id_2_1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                             <!-- Add more sections here -->
+                            <h3>Kinematic Equations of Motion (Calculus Method)</h3>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/QQupgX91jTs?si=TZ-vl-mhbF7NaAex" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
                         `;
-                    } else if (chapter === 'Chapter 3') {
+                    } else if (chapter === 'Motion In a Plane') {
                         sectionsHTML += `
                             <h3>Section 1</h3>
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/video_id_3_1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
