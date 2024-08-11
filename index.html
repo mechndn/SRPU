@@ -81,12 +81,12 @@
 
         const data = {
             'PU I': {
-                'Physics': ['Units and Measurements', 'Motion In a Straight Line', 'Motion In a Plane'],
-                'English': ['Chapter 1', 'Chapter 2', 'Chapter 3'],
+                'Physics': ['Motion In a Straight Line', 'Motion In a Plane'],
+                'English': ['Reflections', 'Grammar'],
             },
             'PU II': {
-                'Physics': ['Chapter 1', 'Chapter 2', 'Chapter 3'],
-                'English': ['Chapter 1', 'Chapter 2', 'Chapter 3'],
+                'Physics': ['Electric Charges and Fields', 'Chapter 2', 'Chapter 3'],
+                'English': ['Springs', 'Grammar'],
             },
         };
 
@@ -148,35 +148,29 @@
                         `;
                     }
                 } else if (subject === 'English') {
-                    if (chapter === 'Chapter 1') {
+                    if (chapter === 'Reflections') {
                         sectionsHTML += `
                             <h3>Section 1</h3>
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/video_id_1_1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                             <!-- Add more sections here -->
                         `;
-                    } else if (chapter === 'Chapter 2') {
+                    } else if (chapter === 'Grammar') {
                         sectionsHTML += `
                             <h3>Section 1</h3>
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/video_id_2_1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                             <!-- Add more sections here -->
                         `;
-                    } else if (chapter === 'Chapter 3') {
-                        sectionsHTML += `
-                            <h3>Section 1</h3>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/video_id_3_1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-                            <!-- Add more sections here -->
-                        `;
+                    
                     }
                 }
             } else if (classValue === 'PU II') {
                 if (subject === 'Physics') {
-                    if (chapter === 'Chapter 1') {
+                    if (chapter === 'Electric Charges and Fields') {
                         sectionsHTML += `
-                            <h3>Section 1</h3>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/video_id_1_1_pu2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <h3>Electric Field Due to an Electric Dipole at a Point on the Dipole Axis</h3>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/LhlzBd4eFjU?si=aWgyb1jTnL7gF1nr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                             <!-- Add more sections here -->
                         `;
@@ -196,14 +190,14 @@
                         `;
                     }
                 } else if (subject === 'English') {
-                    if (chapter === 'Chapter 1') {
+                    if (chapter === 'Springs') {
                         sectionsHTML += `
                             <h3>Section 1</h3>
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/video_id_1_1_pu2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             
                             <!-- Add more sections here -->
                         `;
-                    } else if (chapter === 'Chapter 2') {
+                    } else if (chapter === 'Grammar') {
                         sectionsHTML += `
                             <h3>Section 1</h3>
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/video_id_2_1_pu2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
